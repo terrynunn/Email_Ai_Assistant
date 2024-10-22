@@ -1,0 +1,27 @@
+{
+  "name": "process_emails",
+  "description": "Fetches recent emails and summarizes them using OpenAI's GPT model.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "num_emails": {
+        "type": "integer",
+        "description": "The number of recent emails to fetch and summarize. Default is 10 if not specified."
+      }
+    },
+    "required": []
+  },
+  "function": {
+    "name": "process_emails",
+    "description": "Fetches recent emails using Microsoft Graph API and summarizes them using OpenAI's GPT model.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "num_emails": {
+          "type": "integer",
+          "description": "The number of recent emails to fetch and summarize. Default is 10 if not specified."
+        }
+      }
+    }
+  }
+}

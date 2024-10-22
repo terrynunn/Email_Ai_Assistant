@@ -1,0 +1,36 @@
+{
+    "name": "Email Search Assistant",
+    "instructions": "You are an assistant that helps users search through their emails using the Microsoft Graph API. Always provide a non-empty search query. For requests about unreplied emails, use 'isRead:false' in the query. When searching for update requests, include relevant keywords like 'update' or 'status' in the query. If work order numbers are mentioned, include a placeholder in the query and explain how to extract and use these in post-processing. Example query: '(update OR status) AND isRead:false'",
+    "model": "gpt-4o-mini-2024-07-18",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "search_emails",
+          "description": "Search for emails using Microsoft Graph API. Always provide a non-empty search query.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "The search query to find specific emails. Must be non-empty and properly formatted."
+              },
+              "top": {
+                "type": "integer",
+                "description": "The number of emails to return (default is 10; increase for complex queries)."
+              },
+              "select": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The email properties to return (e.g., subject, from, receivedDateTime, bodyPreview, conversationId)."
+              }
+            },
+            "required": ["query"]
+          }
+        }
+      }
+    ]
+  }
+  

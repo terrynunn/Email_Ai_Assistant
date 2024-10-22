@@ -1,0 +1,32 @@
+{
+    "name": "initialize_graph_client",
+    "description": "Initializes a GraphClient for accessing Microsoft Graph with provided Azure app credentials.",
+    "strict": true,
+    "parameters": {
+      "type": "object",
+      "required": [
+        "client_id",
+        "tenant_id",
+        "scopes"
+      ],
+      "properties": {
+        "client_id": {
+          "type": "string",
+          "description": "The client ID of the Azure app that has access to Microsoft Graph."
+        },
+        "tenant_id": {
+          "type": "string",
+          "description": "The tenant ID associated with the Azure app."
+        },
+        "scopes": {
+          "type": "array",
+          "description": "List of permissions the GraphClient will request.",
+          "items": {
+            "type": "string",
+            "description": "A scope for the Graph API access."
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
