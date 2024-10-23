@@ -1,0 +1,17 @@
+# .gitignore
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+*.pyc
+__pycache__/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
