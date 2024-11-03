@@ -17,8 +17,11 @@ CLIENT_SECRET = os.getenv("MS_GRAPH_CLIENT_SECRET")
 TENANT_ID = os.getenv("MS_GRAPH_TENANT_ID")
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
-# Load the assistant configuration
-with open("assistant_config.json", "r") as config_file:
+# Get the directory where the current script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load the assistant configuration using absolute path
+with open(os.path.join(SCRIPT_DIR, "assistant_config.json"), "r") as config_file:
     assistant_config = json.load(config_file)
 
 # Create the assistant
@@ -162,10 +165,11 @@ def chat_with_assistant():
         else:
             print("\nAssistant: I'm sorry, I couldn't generate a response.")
 
-# Example usage
-if __name__ == "__main__":
+def get_assistant_response(message):
+    """
+    Wrapper function to handle a single message and return response
+    """
     try:
-        chat_with_assistant()
+        return run_assistant(message)
     except Exception as e:
-        print(f"An error occurred: {e}")
-        print("The application will now exit.")
+        return f"Error: {str(e)}"
