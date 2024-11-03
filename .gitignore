@@ -1,12 +1,12 @@
 # .gitignore
 # Environment variables
-.env
+**/backend/.env
 
 # Virtual environment
-venv/
-env/
-*.pyc
-__pycache__/
+**/backend/venv/
+**/backend/env/
+**/*.pyc
+**/__pycache__/
 
 # IDE specific files
 .vscode/
@@ -15,3 +15,7 @@ __pycache__/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Node.js
+**/node_modules/
+**/package-lock.json   # Optional, if you want to ignore it
